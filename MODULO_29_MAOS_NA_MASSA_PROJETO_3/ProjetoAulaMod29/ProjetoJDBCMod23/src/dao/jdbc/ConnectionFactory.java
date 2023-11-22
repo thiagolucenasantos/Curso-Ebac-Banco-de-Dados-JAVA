@@ -16,6 +16,7 @@ public class ConnectionFactory {
     public static Connection getConnection() throws SQLException {
         if (connection == null){
             connection = initConnection();
+            System.out.println("Conectado com sucesso");
             return connection;
         }else if(connection.isClosed()){
             connection = initConnection();
@@ -28,9 +29,10 @@ public class ConnectionFactory {
     private static Connection initConnection() {
         try{
             return DriverManager.getConnection(
-                    "jdbc:postgresql://localhost:15432/Projeto_Mod23",
+                    "jdbc:postgresql://localhost:5433/Projeto_Mod23",
                     "postgres",
                     "postgres");
+
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
