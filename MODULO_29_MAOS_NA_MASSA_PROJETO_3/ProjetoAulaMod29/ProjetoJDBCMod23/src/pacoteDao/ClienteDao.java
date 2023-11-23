@@ -17,8 +17,9 @@ public class ClienteDao implements IClienteDao {
             connection = ConnectionFactory.getConnection();
             String sql = "INSERT INTO tb_cliente (id, nome, codigo) VALUES (nextval('sq_cliente'), ?, ?)";
             stm = connection.prepareStatement(sql);
-            stm.setString(1, cliente.getCodigo());
-            stm.setString(2, cliente.getNome());
+            stm.setString(1, cliente.getNome());
+            stm.setString(2, cliente.getCodigo());
+
             return stm.executeUpdate();
         } catch (Exception e) {
             throw e;
@@ -32,23 +33,23 @@ public class ClienteDao implements IClienteDao {
         }
 
     }
+
     @Override
     public Cliente consultar(String codigo) throws Exception {
         Connection connection = null;
         PreparedStatement stm = null;
         ResultSet rs = null;
-        Cliente cliente = null;
+        Cliente cliente = new Cliente();
         try {
             connection = ConnectionFactory.getConnection();
             String sql = "select * from tb_cliente where codigo = ?";
             stm = connection.prepareStatement(sql);
             stm.setString(1, codigo);
             rs = stm.executeQuery();
-            if (rs.next()){
-            cliente.setId(rs.getLong("id"));
-            cliente.setNome(rs.getString("nome"));
-            cliente.setCodigo(rs.getString("codigo"));
-
+            if (rs.next()) {
+                cliente.setId(rs.getLong("id"));
+                cliente.setNome(rs.getString("nome"));
+                cliente.setCodigo(rs.getString("codigo"));
             }
         } catch (Exception e) {
             throw e;
@@ -59,7 +60,7 @@ public class ClienteDao implements IClienteDao {
             if (connection != null && !stm.isClosed()) {
                 connection.close();
             }
-        };
+        }
         return cliente;
     }
 

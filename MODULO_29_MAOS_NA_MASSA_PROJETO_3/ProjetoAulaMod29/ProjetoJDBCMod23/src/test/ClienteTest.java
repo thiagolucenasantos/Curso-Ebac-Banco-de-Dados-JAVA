@@ -16,11 +16,12 @@ public class ClienteTest {
         cliente.setCodigo("1");
         cliente.setNome("Catarina");
 
+
         Integer qtd = dao.cadastrar(cliente);
-        Assert.assertTrue(qtd == 1);
+        assertTrue(qtd == 1);
 
         Cliente clienteBD = dao.consultar(cliente.getCodigo());
-        Assert.assertNotNull(clienteBD);
+        assertNotNull(clienteBD);
         assertNotNull(clienteBD.getId());
         assertEquals(cliente.getCodigo(), clienteBD.getCodigo());
         assertEquals(cliente.getNome(), clienteBD.getNome());
