@@ -1,0 +1,12 @@
+package dao;
+
+import java.util.List;
+
+public interface IclienteDao1 {
+	public interface IClienteDAO extends IGenericDAO<Cliente, Long>{
+
+		List<Cliente> filtrarClientes(String query);
+
+	}
+
+}
