@@ -1,0 +1,33 @@
+package dao;
+
+
+	/**
+	 * 
+	 */
+	package dao;
+
+	import java.util.List;
+
+	import javax.persistence.TypedQuery;
+
+	import br.com.rpires.dao.generic.GenericDAO;
+
+
+	public class ClienteDAO1 extends GenericDAO<Cliente, Long> implements IClienteDAO {
+
+		public ClienteDAO1() {
+			super(Cliente.class);
+		}
+
+		@Override
+		public List<Cliente> filtrarClientes(String query) {
+			TypedQuery<Cliente> tpQuery = 
+					this.entityManager.createNamedQuery("Cliente.findByNome", this.persistenteClass);
+			tpQuery.setParameter("nome", "%" + query + "%");
+	        return tpQuery.getResultList();
+			
+		}
+
+	}
+
+
