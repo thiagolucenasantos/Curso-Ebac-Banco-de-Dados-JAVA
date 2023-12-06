@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<persistence version="2.0"
+
+             xmlns="http://java.sun.com/xml/ns/persistence"
+
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+
+             xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
+
+    <persistence-unit name="ExemploJPA" transaction-type="RESOURCE_LOCAL">
+
+<!--        <provider>org.hibernate.ejb.HibernatePersistence</provider>-->
+        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+
+        <!-- <class>br.com.rpires.domain.Cliente</class> -->
+
+
+        <properties>
+            <property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver" /> <!-- DB Driver -->
+            <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost:5433/ProjetoMod32" /> <!-- BD Mane -->
+            <property name="javax.persistence.jdbc.user" value="postgres" /> <!-- DB User -->
+            <property name="javax.persistence.jdbc.password" value="postgres" /> <!-- DB Password -->
+
+            <property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect"/> <!-- DB Dialect -->
+            <property name="hibernate.hbm2ddl.auto" value="update" /> <!-- create / create-drop / update -->
+
+            <property name="hibernate.show_sql" value="true" /> <!-- Show SQL in console -->
+            <property name="hibernate.format_sql" value="true" /> <!-- Show SQL formatted -->
+        </properties>
+
+    </persistence-unit>
+
+</persistence>
+
+
+<!-- //////////////////////////////////////////////////////////-->
+
+
+<!--<persistence xmlns="http://java.sun.com/xml/ns/persistence"-->
+<!--             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"-->
+<!--             xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">-->
+<!--             version="2.0">-->
+<!--&lt;!&ndash; unidade de persistencia &ndash;&gt;-->
+<!--<persistence-unit name="ExemploJPA">-->
+<!--    &lt;!&ndash; Implementação do JPA, no nessa caso Hibernate &ndash;&gt;-->
+<!--    <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>-->
+<!--    &lt;!&ndash; Aqui são listadas todas as entidades &ndash;&gt;-->
+<!--    <class>br.com.pacote.modelo.Classe</class>-->
+<!--    <properties>-->
+<!--        &lt;!&ndash; Propriedades JDBC &ndash;&gt;-->
+<!--        <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />-->
+<!--        <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost:5433/ProjetoMod32" />-->
+<!--        <property name="javax.persistence.jdbc.user" value="postgres" />-->
+<!--        <property name="javax.persistence.jdbc.password" value="postgres" />-->
+<!--        &lt;!&ndash; Configurações específicas do Hibernate &ndash;&gt;-->
+<!--        <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5InnoDBDialect" />-->
+<!--        <property name="hibernate.hbm2ddl.auto" value="update" />-->
+<!--        <property name="hibernate.show_sql" value="true" />-->
+<!--        <property name="hibernate.format_sql" value="true" />-->
+<!--    </properties>-->
+<!--</persistence-unit>-->
+<!--</persistence>-->
+
+
